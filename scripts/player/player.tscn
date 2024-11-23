@@ -22,6 +22,7 @@ animations = [{
 radius = 48.0104
 
 [node name="Player" type="CharacterBody2D"]
+platform_on_leave = 2
 script = ExtResource("1_sehy3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
