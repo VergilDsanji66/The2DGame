@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+[gd_scene load_steps=4 format=3 uid="uid://dkg4xwmrkmeo7"]
+=======
 [gd_scene load_steps=4 format=3 uid="uid://cn0ve7ctyefcc"]
+>>>>>>> e39f740e0f6cc366b291ad269143902b0a4d7c4b
 
 [ext_resource type="Texture2D" uid="uid://dg3ytfitip123" path="res://Assets/character and tileset/demonstration.png" id="1_0557w"]
 
