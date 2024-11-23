@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dgp2ivrma2jfy"
+path="res://.godot/imported/Ava Low - Through the Prism (Royalty Free Music) - Epidemic Arcade (youtube).mp3-e39f2465ae7878a1d88b2552055da8b6.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Ava Low - Through the Prism (Royalty Free Music) - Epidemic Arcade (youtube).mp3"
+dest_files=["res://.godot/imported/Ava Low - Through the Prism (Royalty Free Music) - Epidemic Arcade (youtube).mp3-e39f2465ae7878a1d88b2552055da8b6.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
