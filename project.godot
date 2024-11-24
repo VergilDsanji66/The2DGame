@@ -11,9 +11,18 @@ config_version=5
 [application]
 
 config/name="TheGame2D"
-run/main_scene="res://scripts/player/player.tscn"
+run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+AudioStreamPlayer2d="*res://Scenes/Stage 1/audio_stream_player_2d.tscn"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
 [input]
 
