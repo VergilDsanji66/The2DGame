@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://crg5d7is6vim4"]
+[gd_scene load_steps=13 format=3 uid="uid://crg5d7is6vim4"]
 
 [ext_resource type="Texture2D" uid="uid://dg3ytfitip123" path="res://Assets/character and tileset/demonstration.png" id="1_0557w"]
+[ext_resource type="Script" path="res://Scenes/Stage 1/game.gd" id="1_ccycs"]
 [ext_resource type="PackedScene" uid="uid://mdtudgdcs0n" path="res://scripts/player/player.tscn" id="2_l6aqr"]
 [ext_resource type="PackedScene" uid="uid://bidbt72hyi5eq" path="res://scripts/enemies/enemies.tscn" id="3_xhgnf"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_hgve4"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_yqvn2"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_6gqom"]
+[ext_resource type="PackedScene" uid="uid://buhmvdnkigpd8" path="res://Scenes/PauseMenu.tscn" id="8_o84hj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5d4jf"]
 texture = ExtResource("1_0557w")
@@ -228,6 +230,7 @@ ease = 2
 size = Vector2(1876, 1019)
 
 [node name="game" type="Node2D"]
+script = ExtResource("1_ccycs")
 
 [node name="TileMap" type="TileMap" parent="."]
 light_mask = 0
@@ -248,12 +251,12 @@ platform_floor_layers = 4294901760
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(-112, -103)
+position = Vector2(-89, -103)
 zoom = Vector2(0.75, 0.75)
-limit_left = -1164
-limit_top = -591
-limit_right = 656
-limit_bottom = 379
+limit_left = -1197
+limit_top = -604
+limit_right = 679
+limit_bottom = 416
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300
@@ -261,7 +264,7 @@ process_physics_priority = 300
 script = ExtResource("4_hgve4")
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(-112, -103)
+position = Vector2(-89, -103)
 script = ExtResource("5_yqvn2")
 follow_mode = 5
 follow_target = NodePath("../Player")
@@ -276,6 +279,18 @@ limit_target = NodePath("../camera_bounds/CollisionShape2D")
 [node name="camera_bounds" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="camera_bounds"]
-position = Vector2(-257, -104.5)
+position = Vector2(-259, -94)
 shape = SubResource("RectangleShape2D_npclp")
 disabled = true
+
+[node name="pause" parent="." instance=ExtResource("8_o84hj")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -245.0
+offset_top = -123.0
+offset_right = -245.0
+offset_bottom = -123.0

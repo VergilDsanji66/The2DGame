@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://buhmvdnkigpd8"]
+
+[ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="1_ujqrg"]
+[ext_resource type="Shader" path="res://Scenes/PauseMenu.gdshader" id="2_pqlq2"]
+[ext_resource type="FontFile" uid="uid://cgyn2ycbrwuaw" path="res://Assets/Fonts/Stacked pixel.ttf" id="2_vnxon"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_be6wl"]
+shader = ExtResource("2_pqlq2")
+shader_parameter/amount = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_16mr8"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
+
+[node name="pause_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ujqrg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_be6wl")
+layout_mode = 0
+offset_left = -3328.0
+offset_top = -1956.0
+offset_right = 2944.0
+offset_bottom = 1860.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = -10.0
+offset_right = 145.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Main Menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_16mr8")
+text = " Main Menu  "
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -133.0
+offset_right = 137.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_vnxon")
+theme_override_font_sizes/font_size = 91
+text = "Paused"
+
+[connection signal="pressed" from="VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
