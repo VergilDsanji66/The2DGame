@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var sprite = $AnimatedSprite2D  # Adjust path if necessary
 var player  # Reference to the player or target node
 var min_distance = 50.0  # Minimum distance before stopping
-var move_speed = 300.0  # Movement speed of the enemy
+var move_speed = 100.0  # Movement speed of the enemy
 
 func _ready():
 	# Set the initial animation

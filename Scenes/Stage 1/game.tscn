@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dg3ytfitip123" path="res://Assets/character and tileset/demonstration.png" id="1_0557w"]
 [ext_resource type="PackedScene" uid="uid://mdtudgdcs0n" path="res://scripts/player/player.tscn" id="2_l6aqr"]
-[ext_resource type="PackedScene" uid="uid://bidbt72hyi5eq" path="res://scripts/enemies/enemies.tscn" id="3_xhgnf"]
+[ext_resource type="PackedScene" uid="uid://bidbt72hyi5eq" path="res://scripts/mobs/mobs.tscn" id="3_xhgnf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5d4jf"]
 texture = ExtResource("1_0557w")
@@ -232,9 +232,7 @@ limit_bottom = 342
 [node name="Player" parent="." instance=ExtResource("2_l6aqr")]
 position = Vector2(-81, -91)
 platform_on_leave = 0
-platform_floor_layers = 4294901760
 
 [node name="mob" parent="." instance=ExtResource("3_xhgnf")]
 position = Vector2(111, -56)
 platform_on_leave = 0
-platform_floor_layers = 4294901760
