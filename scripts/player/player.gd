@@ -36,3 +36,4 @@ func on_hurt():
 func on_death():
 	# Call this when the character dies
 	$AnimatedSprite2D.play("death")
+
