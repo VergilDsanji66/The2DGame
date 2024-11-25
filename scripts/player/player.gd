@@ -25,7 +25,6 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.flip_h = false
 	elif direction.x < 0:  # Moving left
 		$AnimatedSprite2D.flip_h = true
-	
 func on_rolling():
 	# Play rolling animation
 	$AnimatedSprite2D.play("rolling")
