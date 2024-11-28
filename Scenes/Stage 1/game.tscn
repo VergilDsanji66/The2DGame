@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://Scenes/Stage 1/game.gd" id="1_ccycs"]
 [ext_resource type="PackedScene" uid="uid://mdtudgdcs0n" path="res://scripts/player/player.tscn" id="2_l6aqr"]
 [ext_resource type="PackedScene" uid="uid://bidbt72hyi5eq" path="res://scripts/mobs/mobs.tscn" id="3_xhgnf"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_hgve4"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_yqvn2"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_6gqom"]
-[ext_resource type="PackedScene" uid="uid://buhmvdnkigpd8" path="res://scenes/PauseMenu.tscn" id="8_o84hj"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_cux4h"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="7_wybb2"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_c53dq"]
+[ext_resource type="PackedScene" uid="uid://buhmvdnkigpd8" path="res://Scenes/PauseMenu.tscn" id="8_o84hj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5d4jf"]
 texture = ExtResource("1_0557w")
@@ -220,16 +220,17 @@ texture = ExtResource("1_0557w")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_5d4jf")
 
-[sub_resource type="Resource" id="Resource_7qwpj"]
-script = ExtResource("6_6gqom")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npclp"]
+size = Vector2(1876, 1019)
+
+[sub_resource type="Resource" id="Resource_kof6x"]
+script = ExtResource("8_c53dq")
 duration = 1.0
 transition = 0
 ease = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_npclp"]
-size = Vector2(1876, 1019)
-
 [node name="game" type="Node2D"]
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_ccycs")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -245,33 +246,6 @@ platform_on_leave = 0
 [node name="mob" parent="." instance=ExtResource("3_xhgnf")]
 position = Vector2(507, -340)
 platform_on_leave = 0
-
-[node name="Camera2D" type="Camera2D" parent="."]
-physics_interpolation_mode = 1
-position = Vector2(-89, -103)
-zoom = Vector2(0.75, 0.75)
-limit_left = -1197
-limit_top = -604
-limit_right = 679
-limit_bottom = 416
-
-[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("4_hgve4")
-
-[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(-89, -103)
-script = ExtResource("5_yqvn2")
-follow_mode = 5
-follow_target = NodePath("../Player")
-zoom = Vector2(0.75, 0.75)
-tween_resource = SubResource("Resource_7qwpj")
-follow_damping = true
-follow_damping_value = Vector2(0.25, 0.25)
-dead_zone_width = 0.266
-dead_zone_height = 0.35
-limit_target = NodePath("../camera_bounds/CollisionShape2D")
 
 [node name="camera_bounds" type="Area2D" parent="."]
 
@@ -291,3 +265,30 @@ offset_left = -245.0
 offset_top = -123.0
 offset_right = -245.0
 offset_bottom = -123.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-32, -103)
+scale = Vector2(1.33333, 1.33333)
+zoom = Vector2(0.75, 0.75)
+limit_left = -1132
+limit_top = -580
+limit_right = 744
+limit_bottom = 439
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("6_cux4h")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+position = Vector2(-32, -103)
+script = ExtResource("7_wybb2")
+follow_mode = 5
+follow_target = NodePath("../Player")
+zoom = Vector2(0.75, 0.75)
+tween_resource = SubResource("Resource_kof6x")
+follow_damping = true
+follow_damping_value = Vector2(0.25, 0.25)
+dead_zone_width = 0.117
+dead_zone_height = 0.214
+limit_target = NodePath("../camera_bounds/CollisionShape2D")
