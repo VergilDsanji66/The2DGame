@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://mdtudgdcs0n"]
+[gd_scene load_steps=30 format=3 uid="uid://mdtudgdcs0n"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_sehy3"]
 [ext_resource type="Texture2D" uid="uid://be7tdhvi0qnuu" path="res://brackeys_platformer_assets/sprites/knight.png" id="2_sd18g"]
+[ext_resource type="PackedScene" uid="uid://efjp6lph5o1b" path="res://scripts/mechanics/weapons/gun_base/gun.tscn" id="3_v237y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uxn6l"]
 atlas = ExtResource("2_sd18g")
@@ -200,7 +201,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oa8wp"]
-radius = 10.4403
+radius = 16.0
 
 [node name="Player" type="CharacterBody2D"]
 platform_on_leave = 2
@@ -217,3 +218,6 @@ offset = Vector2(-14.4, 15.3094)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_oa8wp")
+
+[node name="Gun" parent="." instance=ExtResource("3_v237y")]
+position = Vector2(0, 16)

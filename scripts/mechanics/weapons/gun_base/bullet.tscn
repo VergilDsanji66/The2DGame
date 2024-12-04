@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0a3cl1u44tnh"]
+
+[ext_resource type="Texture2D" uid="uid://dcqa5gr14254e" path="res://Assets/items and trap_animation/arrow/arrow_2.png" id="1_4fu40"]
+[ext_resource type="Script" path="res://scripts/mechanics/weapons/gun_base/bullet.gd" id="1_dsqhb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi160"]
+atlas = ExtResource("1_4fu40")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xuaxv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi160")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rpv2s"]
+radius = 12.8062
+
+[node name="bullet" type="Area2D"]
+top_level = true
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_dsqhb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.76837e-07, 1)
+scale = Vector2(2.0625, 2.125)
+sprite_frames = SubResource("SpriteFrames_xuaxv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_rpv2s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

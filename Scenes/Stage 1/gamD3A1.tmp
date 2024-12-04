@@ -293,15 +293,3 @@ follow_damping_value = Vector2(0.25, 0.25)
 dead_zone_width = 0.117
 dead_zone_height = 0.214
 limit_target = NodePath("../camera_bounds/CollisionShape2D")
-
-[node name="mob2" parent="." instance=ExtResource("3_xhgnf")]
-position = Vector2(320, -256)
-platform_on_leave = 0
-
-[node name="mob3" parent="." instance=ExtResource("3_xhgnf")]
-position = Vector2(101.333, 62.6667)
-platform_on_leave = 0
-
-[node name="mob4" parent="." instance=ExtResource("3_xhgnf")]
-position = Vector2(0, -181.333)
-platform_on_leave = 0

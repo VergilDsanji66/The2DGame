@@ -2,16 +2,21 @@ extends CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D  # Adjust path if necessary
 var player  # Reference to the player or target node
-var min_distance = 50.0  # Minimum distance before stopping
+var min_distance = 20.0  # Minimum distance before stopping
 var move_speed = 100.0  # Movement speed of the enemy
+var health = 3
 
 func _ready():
 	# Set the initial animation
 	sprite.play("walk")
 	player = get_parent().get_node("Player")  # Adjust the path to your player node
 
-func switch_to_hurt():
-	sprite.play("hurt")
+func take_damage():
+	health -= 1
+	if health == 0:
+		queue_free()
+	else:
+		sprite.play("hurt")
 
 func switch_to_walk():
 	sprite.play("walk")
