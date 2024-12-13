@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cndb547bu88wb"
-path="res://.godot/imported/TheUltimateWeaponsPack_Sheet.png-77b681242749b7e5a796f1a4fb583d86.ctex"
+uid="uid://br1g7u8kx47qi"
+path="res://.godot/imported/pngegg.png-c45ff6291bbc4b44468321b20cf03fbd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TheUltimateWeaponsPack/TheUltimateWeaponsPack_Sheet.png"
-dest_files=["res://.godot/imported/TheUltimateWeaponsPack_Sheet.png-77b681242749b7e5a796f1a4fb583d86.ctex"]
+source_file="res://Assets/TheUltimateWeaponsPack/pngegg.png"
+dest_files=["res://.godot/imported/pngegg.png-c45ff6291bbc4b44468321b20cf03fbd.ctex"]
 
 [params]
 

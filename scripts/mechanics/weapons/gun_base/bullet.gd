@@ -13,7 +13,6 @@ func _physics_process(delta: float) -> void:
 	if travell_distance > RANGE:
 		queue_free() #destroyes the bullet
 
-
 func _on_body_entered(body: Node2D) -> void:
 	queue_free()
 	if body.has_method("take_damage"):

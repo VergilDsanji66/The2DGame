@@ -1,20 +1,20 @@
 [gd_scene load_steps=6 format=3 uid="uid://efjp6lph5o1b"]
 
 [ext_resource type="Script" path="res://scripts/mechanics/weapons/gun_base/gun.gd" id="1_ambhs"]
-[ext_resource type="Texture2D" uid="uid://chsspjyk70tlb" path="res://Assets/TheUltimateWeaponsPack/TheUltimateWeaponsPack_Sheet.png" id="1_qmksp"]
+[ext_resource type="Texture2D" uid="uid://br1g7u8kx47qi" path="res://Assets/TheUltimateWeaponsPack/pngegg.png" id="2_pls0t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o4gv5"]
 radius = 152.21
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r2t4w"]
-atlas = ExtResource("1_qmksp")
-region = Rect2(190, 0, 38, 22)
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp3hx"]
+atlas = ExtResource("2_pls0t")
+region = Rect2(320, 480, 160, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ivyro"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r2t4w")
+"texture": SubResource("AtlasTexture_sp3hx")
 }],
 "loop": true,
 "name": &"default",
@@ -33,12 +33,16 @@ shape = SubResource("CircleShape2D_o4gv5")
 rotation = -0.0307925
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Marker2D"]
-position = Vector2(-21.0208, 0.352986)
+position = Vector2(-0.0307876, 0.999526)
+rotation = 0.0285634
+scale = Vector2(0.369306, 0.351553)
 sprite_frames = SubResource("SpriteFrames_ivyro")
 
 [node name="shootingpoint" type="Marker2D" parent="Marker2D/AnimatedSprite2D"]
 unique_name_in_owner = true
-position = Vector2(-16.8209, -6.62937)
+position = Vector2(35.2192, -8.45112)
+rotation = 0.00782031
+scale = Vector2(-1.27138, 0.910636)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5

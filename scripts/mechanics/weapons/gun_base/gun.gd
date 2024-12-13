@@ -1,11 +1,10 @@
 extends Area2D
 
 func _physics_process(delta: float) -> void:
-	var enemies_in_range = get_overlapping_bodies() # works with collision area
+	var enemies_in_range = get_overlapping_bodies()
 	if enemies_in_range.size() > 0:
-		var target_enemy = enemies_in_range.front() # gets the first enemy in range
-		var direction = (target_enemy.global_position - global_position).normalized()
-		rotation = direction.angle() + PI # Rotate by 180 degrees use if guns are inverted
+		var target_enemy = enemies_in_range.front()
+		look_at(target_enemy.global_position)
 
 
 func shoot():
