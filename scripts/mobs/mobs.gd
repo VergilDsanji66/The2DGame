@@ -4,7 +4,7 @@ extends CharacterBody2D
 var player  # Reference to the player or target node
 var min_distance = 20.0  # Minimum distance before stopping
 var move_speed = 100.0  # Movement speed of the enemy
-var health = 3
+var health = 20
 
 func _ready():
 	# Set the initial animation
@@ -44,3 +44,11 @@ func _physics_process(delta: float) -> void:
 
 		# Apply movement
 		move_and_slide()
+
+func _on_body_entered(body: Node2D) -> void:
+	if body == player:  # Check if the body is the player
+		if player.has_method("take_damage"):
+			player.take_damage()  # Inflict damage on the player
+	else:
+		if body.has_method("take_damage"):
+			body.take_damage()  # Damage other objects if needed

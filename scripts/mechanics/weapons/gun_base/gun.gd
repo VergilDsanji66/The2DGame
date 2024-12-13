@@ -8,11 +8,13 @@ func _physics_process(delta: float) -> void:
 
 
 func shoot():
-	const BULLET = preload("res://scripts/mechanics/weapons/gun_base/bullet.tscn")
-	var new_bullet = BULLET.instantiate()
-	new_bullet.global_position = %shootingpoint.global_position
-	new_bullet.global_rotation = %shootingpoint.global_rotation
-	%shootingpoint.add_child(new_bullet)
+	var enemies_in_range = get_overlapping_bodies()
+	if enemies_in_range.size() > 0:
+		const BULLET = preload("res://scripts/mechanics/weapons/gun_base/bullet.tscn")
+		var new_bullet = BULLET.instantiate()
+		new_bullet.global_position = %shootingpoint.global_position
+		new_bullet.global_rotation = %shootingpoint.global_rotation
+		%shootingpoint.add_child(new_bullet)
 
 
 func _on_timer_timeout() -> void:

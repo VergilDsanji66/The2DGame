@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: float = 200
+var health = 2
 
 func _physics_process(delta: float) -> void:
 	# Get input direction
@@ -29,10 +30,13 @@ func _physics_process(delta: float) -> void:
 func on_rolling():
 	# Play rolling animation
 	$AnimatedSprite2D.play("rolling")
-
-func on_hurt():
-	# Call this when the character gets hurt
-	$AnimatedSprite2D.play("hurt")
+	
+func take_damage():
+	health -= 1
+	if health == 0:
+		queue_free()
+	else:
+		$AnimatedSprite2D.play("hurt")
 
 func on_death():
 	# Call this when the character dies
