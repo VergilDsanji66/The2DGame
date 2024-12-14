@@ -1,5 +1,10 @@
 extends CharacterBody2D
 
+@onready var game_manager: Node = %GameManager
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var gun_shot: AudioStreamPlayer2D = $GunShot
+
+#@onready var mob_death_sfx: AudioStreamPlayer2D = $MobDeathSFX
 @onready var sprite = $AnimatedSprite2D  # Adjust path if necessary
 var player  # Reference to the player or target node
 var min_distance = 20.0  # Minimum distance before stopping
@@ -12,9 +17,13 @@ func _ready():
 	player = get_parent().get_node("Player")  # Adjust the path to your player node
 
 func take_damage():
+	#mob_death_sfx.play()
+	gun_shot.play()
 	health -= 1
 	if health == 0:
-		queue_free()
+		game_manager.add_point()     #label for score counter
+		animation_player.play("mobdeath")  #sound when mobs die
+		#queue_free()
 	else:
 		sprite.play("hurt")
 
@@ -46,6 +55,8 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 func _on_body_entered(body: Node2D) -> void:
+	  #How many mobs where killed
+	
 	if body == player:  # Check if the body is the player
 		if player.has_method("take_damage"):
 			player.take_damage()  # Inflict damage on the player

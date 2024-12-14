@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var mob_death_sfx: AudioStreamPlayer2D = $MobDeathSFX
 @export var speed: float = 200
 var health = 2
 

@@ -1,6 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://crg5d7is6vim4"]
+[gd_scene load_steps=14 format=3 uid="uid://crg5d7is6vim4"]
 
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_0pa1b"]
 [ext_resource type="Texture2D" uid="uid://dg3ytfitip123" path="res://Assets/character and tileset/demonstration.png" id="1_0557w"]
+[ext_resource type="FontFile" uid="uid://cl1kyccdwnp7o" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="2_k1kyu"]
 [ext_resource type="PackedScene" uid="uid://mdtudgdcs0n" path="res://scripts/player/player.tscn" id="2_l6aqr"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_cux4h"]
 [ext_resource type="PackedScene" uid="uid://bidbt72hyi5eq" path="res://scripts/mobs/mobs.tscn" id="7_qggcr"]
@@ -231,6 +233,20 @@ size = Vector2(2040, 1004)
 [node name="game" type="Node2D"]
 scale = Vector2(0.75, 0.75)
 
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_0pa1b")
+
+[node name="ScoreLabel" type="Label" parent="GameManager"]
+offset_left = 4.0
+offset_top = -39.0
+offset_right = 338.0
+offset_bottom = -4.0
+theme_override_fonts/font = ExtResource("2_k1kyu")
+text = "Enemies defeated: 0"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="TileMap" type="TileMap" parent="."]
 light_mask = 0
 position = Vector2(1150.67, 509.333)
@@ -250,7 +266,7 @@ rotation = -0.131763
 scale = Vector2(1.33333, 1.33333)
 zoom = Vector2(2, 2)
 limit_left = -16
-limit_top = -27
+limit_top = -63
 limit_right = 1523
 limit_bottom = 729
 limit_smoothed = true
@@ -275,7 +291,7 @@ follow_damping_value = Vector2(0.25, 0.25)
 dead_zone_width = 0.117
 dead_zone_height = 0.214
 limit_left = -16
-limit_top = -27
+limit_top = -63
 limit_right = 1523
 limit_bottom = 729
 
@@ -283,7 +299,8 @@ limit_bottom = 729
 position = Vector2(1037.33, 413.333)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="camera_bounds"]
-position = Vector2(-33.3299, 53.3337)
+visible = false
+position = Vector2(-62.6632, 49.3337)
 shape = SubResource("RectangleShape2D_npclp")
 disabled = true
 
