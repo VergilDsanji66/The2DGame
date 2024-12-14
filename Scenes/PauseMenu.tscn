@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://brwg1d050vuqm"]
 
 [ext_resource type="Script" path="res://scenes/pausemenu.gd" id="1_fycxx"]
-[ext_resource type="Shader" path="res://scenes/pausemenu.gdshader" id="1_sh52x"]
+[ext_resource type="Shader" path="res://Scenes/PauseMenu.gdshader" id="2_fi6ph"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fq73x"]
-shader = ExtResource("1_sh52x")
-shader_parameter/lod = 0.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_swxrn"]
+shader = ExtResource("2_fi6ph")
+shader_parameter/amount = 1.0
 
 [sub_resource type="Animation" id="Animation_2i6f7"]
 length = 0.001
@@ -54,12 +54,15 @@ grow_vertical = 2
 script = ExtResource("1_fycxx")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-self_modulate = Color(0, 0, 0, 1)
-material = SubResource("ShaderMaterial_fq73x")
+material = SubResource("ShaderMaterial_swxrn")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -817.0
+offset_top = -417.0
+offset_right = 730.0
+offset_bottom = 380.0
 grow_horizontal = 2
 grow_vertical = 2
 
