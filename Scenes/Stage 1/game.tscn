@@ -1,14 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://crg5d7is6vim4"]
+[gd_scene load_steps=15 format=3 uid="uid://crg5d7is6vim4"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_0pa1b"]
+[ext_resource type="Script" path="res://scenes/Stage 1/game.gd" id="1_0rmgn"]
 [ext_resource type="Texture2D" uid="uid://dg3ytfitip123" path="res://Assets/character and tileset/demonstration.png" id="1_0557w"]
 [ext_resource type="FontFile" uid="uid://cl1kyccdwnp7o" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="2_k1kyu"]
 [ext_resource type="PackedScene" uid="uid://mdtudgdcs0n" path="res://scripts/player/player.tscn" id="2_l6aqr"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_cux4h"]
-[ext_resource type="PackedScene" uid="uid://bidbt72hyi5eq" path="res://scripts/mobs/mobs.tscn" id="7_qggcr"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="7_wybb2"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_c53dq"]
-[ext_resource type="PackedScene" uid="uid://brwg1d050vuqm" path="res://Scenes/PauseMenu.tscn" id="8_vhbny"]
+[ext_resource type="PackedScene" uid="uid://brwg1d050vuqm" path="res://scenes/pausemenu.tscn" id="8_vhbny"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5d4jf"]
 texture = ExtResource("1_0557w")
@@ -221,6 +221,12 @@ texture = ExtResource("1_0557w")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_5d4jf")
 
+[sub_resource type="Curve2D" id="Curve2D_vwt2p"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -149.333, -181.333, 0, 0, 0, 0, -149.333, 1092, 0, 0, 0, 0, 2118.67, 1078.67, 0, 0, 0, 0, 2108, -181.333, 0, 0, 0, 0, -153.333, -186.667)
+}
+point_count = 5
+
 [sub_resource type="Resource" id="Resource_kof6x"]
 script = ExtResource("8_c53dq")
 duration = 1.0
@@ -232,6 +238,7 @@ size = Vector2(2040, 1004)
 
 [node name="game" type="Node2D"]
 scale = Vector2(0.75, 0.75)
+script = ExtResource("1_0rmgn")
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -258,6 +265,15 @@ layer_0/tile_data = PackedInt32Array(-1704007, 0, 9, -1638471, 0, 9, -1572935, 0
 [node name="Player" parent="." instance=ExtResource("2_l6aqr")]
 position = Vector2(894.667, 424)
 platform_on_leave = 0
+
+[node name="Path2D" type="Path2D" parent="Player"]
+position = Vector2(-894.667, -424)
+curve = SubResource("Curve2D_vwt2p")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-149.333, -181.333)
+rotation = 1.5708
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
@@ -305,8 +321,10 @@ shape = SubResource("RectangleShape2D_npclp")
 disabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Pausemenu" parent="CanvasLayer" instance=ExtResource("8_vhbny")]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -317,11 +335,8 @@ offset_top = 1.0
 offset_right = 98.0
 offset_bottom = 1.0
 
-[node name="mob" parent="." instance=ExtResource("7_qggcr")]
-position = Vector2(389.333, 218.667)
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
 
-[node name="mob2" parent="." instance=ExtResource("7_qggcr")]
-position = Vector2(428, 625.333)
-
-[node name="mob3" parent="." instance=ExtResource("7_qggcr")]
-position = Vector2(1017.33, 134.667)
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
