@@ -217,7 +217,7 @@ position = Vector2(32, -32)
 scale = Vector2(2.235, 2.044)
 sprite_frames = SubResource("SpriteFrames_yufin")
 animation = &"death"
-frame_progress = 0.688678
+frame_progress = 0.185459
 offset = Vector2(-14.4, 15.3094)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
