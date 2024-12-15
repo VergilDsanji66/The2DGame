@@ -166,7 +166,7 @@ script = ExtResource("1_n65js")
 position = Vector2(-1, -13)
 scale = Vector2(2.125, 2.25)
 sprite_frames = SubResource("SpriteFrames_8tndo")
-animation = &"walk"
+animation = &"hurt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 1)
