@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://crg5d7is6vim4"]
+[gd_scene load_steps=15 format=4 uid="uid://crg5d7is6vim4"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_0pa1b"]
 [ext_resource type="Script" path="res://scenes/Stage 1/game.gd" id="1_0rmgn"]
@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_cux4h"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="7_wybb2"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_c53dq"]
-[ext_resource type="PackedScene" uid="uid://brwg1d050vuqm" path="res://scenes/pausemenu.tscn" id="8_vhbny"]
+[ext_resource type="PackedScene" uid="uid://brwg1d050vuqm" path="res://Scenes/PauseMenu.tscn" id="8_vhbny"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5d4jf"]
 texture = ExtResource("1_0557w")
@@ -320,7 +320,6 @@ shape = SubResource("RectangleShape2D_npclp")
 disabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Pausemenu" parent="CanvasLayer" instance=ExtResource("8_vhbny")]
 visible = false

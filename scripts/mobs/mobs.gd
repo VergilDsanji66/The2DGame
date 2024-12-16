@@ -20,7 +20,9 @@ func take_damage():
 	gun_shot.play()
 	health -= 1
 	if health == 0:
-		queue_free()
+		#game_manager.add_point()
+		animation_player.play("mobdeath")
+		#queue_free()
 	else:
 		$AnimatedSprite2D.play("mobHurt")
 
