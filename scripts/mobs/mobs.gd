@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-@onready var game_manager: Node = %GameManager
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var gun_shot: AudioStreamPlayer2D = $GunShot
 
@@ -20,6 +19,7 @@ func take_damage():
 	gun_shot.play()
 	health -= 1
 	if health == 0:
+		Global.Score += 100
 		queue_free()
 	else:
 		$AnimatedSprite2D.play("hurt")
