@@ -22,7 +22,7 @@ func take_damage():
 	if health == 0:
 		queue_free()
 	else:
-		$AnimatedSprite2D.play("mobHurt")
+		$AnimatedSprite2D.play("hurt")
 
 func switch_to_walk():
 	sprite.play("walk")
